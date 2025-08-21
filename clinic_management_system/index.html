@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Clinic Management System</title>
+        <link rel = "stylesheet" href = "style.css">
+    </head>
+    <body>
+        <h1>Clinic Management System</h1>
+
+        <!-- Login Section -->
+        <div id = "login-section">
+            <h2>Login</h2>
+            <select id = "role">
+                <option value = "doctor">Doctor</option>
+                <option value = "receptionist">Receptionist</option>
+            </select>
+            <input type = "text" id = "username" placeholder = "Enter username">
+            <button onclick = "login()">Login</button>
+        </div>
+
+        <!-- Receptionist Panel -->
+        <div id = "receptionist-panel" class = "hidden">
+            <h2>Receptionist Dashboard</h2>
+            <button onclick = "logout()">Logout</button>
+            <h3>Add Patient</h3>
+            <input type = "text" id = "patient-name" placeholder = "Patient Name">
+            <input type = "text" id = "patient-age" placeholder = "Age">
+            <input type = "text" id = "patient-prescription" placeholder = "Prescription">
+            <button onclick = "addPatient()">Add Patient</button>
+            <p id = "token-info"></p>
+
+            <h3>Generate Bill</h3>
+            <input type = "number" id = "charge" placeholder = "Enter Charge">
+            <button onclick = "generateBill()">Generate Bill</button>
+            <p id = "bill-info"></p>
+        </div>
+
+        <!-- Doctor Panel -->
+        <div id = "doctor-panel" class = "hidden">
+            <h2>Doctor Dashboard</h2>
+            <button onclick = "logout()">Logout</button>
+            <h3>Patient List</h3>
+            <ul id = "patient-list"></ul>
+        </div>
+
+        <script src = "script.js"></script>
+    </body>
+</html>
