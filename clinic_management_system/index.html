@@ -1,49 +1,76 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset = "UTF-8">
-        <title>Clinic Management System</title>
-        <link rel = "stylesheet" href = "style.css">
-    </head>
-    <body>
-        <h1>Clinic Management System</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Clinic Management System</h1>
 
-        <!-- Login Section -->
-        <div id = "login-section">
-            <h2>Login</h2>
-            <select id = "role">
-                <option value = "doctor">Doctor</option>
-                <option value = "receptionist">Receptionist</option>
-            </select>
-            <input type = "text" id = "username" placeholder = "Enter username">
-            <button onclick = "login()">Login</button>
+    <!-- Login Section -->
+    <div id="login-section" class="card">
+        <h2>Clinic Portal Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="login-error" class="error-msg"></p>
+        
+        <div class="demo-credentials">
+            <small><strong>Demo Credentials:</strong></small><br>
+            <small>Doctor: <code>doc1</code> / <code>doc123</code></small><br>
+            <small>Receptionist: <code>rec1</code> / <code>rec123</code></small>
         </div>
 
-        <!-- Receptionist Panel -->
-        <div id = "receptionist-panel" class = "hidden">
-            <h2>Receptionist Dashboard</h2>
-            <button onclick = "logout()">Logout</button>
-            <h3>Add Patient</h3>
-            <input type = "text" id = "patient-name" placeholder = "Patient Name">
-            <input type = "text" id = "patient-age" placeholder = "Age">
-            <input type = "text" id = "patient-prescription" placeholder = "Prescription">
-            <button onclick = "addPatient()">Add Patient</button>
-            <p id = "token-info"></p>
+        <!-- Reset Button -->
+        <button onclick="resetData()" class="reset-btn">Reset System Data</button>
+    </div>
 
-            <h3>Generate Bill</h3>
-            <input type = "number" id = "charge" placeholder = "Enter Charge">
-            <button onclick = "generateBill()">Generate Bill</button>
-            <p id = "bill-info"></p>
+    <!-- Receptionist Panel -->
+    <div id="receptionist-panel" class="hidden card">
+        <div class="header-row">
+            <div>
+                <h2>Receptionist Dashboard</h2>
+                <span id="receptionist-welcome" class="welcome-tag"></span>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        
+        <h3>1. Register Patient & Generate Token</h3>
+        <input type="text" id="patient-name" placeholder="Patient Name">
+        <input type="number" id="patient-age" placeholder="Age">
+        <button onclick="addPatient()">Generate Token</button>
+        <p id="token-info" class="success-msg"></p>
+
+        <hr>
+
+        <h3>2. Billing & Records</h3>
+        <select id="billing-patient-select" title="Select Patient for Billing">
+            <option value="">Select Patient for Billing</option>
+        </select>
+        <input type="number" id="charge" placeholder="Consultation Charge (₹)">
+        <button onclick="generateBill()">Generate Bill</button>
+        <p id="bill-info" class="success-msg"></p>
+
+        <h3>All Patient Records</h3>
+        <ul id="receptionist-patient-list" class="patient-list"></ul>
+    </div>
+
+    <!-- Doctor Panel -->
+    <div id="doctor-panel" class="hidden card">
+        <div class="header-row">
+            <div>
+                <h2>Doctor Dashboard</h2>
+                <span id="doctor-welcome" class="welcome-tag"></span>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
 
-        <!-- Doctor Panel -->
-        <div id = "doctor-panel" class = "hidden">
-            <h2>Doctor Dashboard</h2>
-            <button onclick = "logout()">Logout</button>
-            <h3>Patient List</h3>
-            <ul id = "patient-list"></ul>
-        </div>
+        <h3>Active Patient Queue</h3>
+        <ul id="doctor-patient-list" class="patient-list"></ul>
+    </div>
 
-        <script src = "script.js"></script>
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
