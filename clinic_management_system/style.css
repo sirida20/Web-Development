@@ -1,29 +1,156 @@
+/* ===== Base and Typography Settings ===== */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #f0f8ff;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f5;
+    padding: 30px 15px;
+    margin: 0;
+    color: #333;
 }
 
+h1 {
+    text-align: center;
+    color: #1a365d;
+    margin-bottom: 25px;
+}
+
+/* ===== Layout Containers and Headers ===== */
+/* Main card wrapper for panels and forms */
+.card {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Utility class to toggle panel visibility */
 .hidden {
     display: none;
 }
 
+/* Header row layout for dashboard panels */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.header-row h2 {
+    margin: 0;
+}
+
+.welcome-tag {
+    font-size: 13px;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ===== Form Controls and Buttons ===== */
 input, select, button {
-    margin: 5px;
-    padding: 8px;
+    margin: 8px 0;
+    padding: 10px;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
 }
 
 button {
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-h2 {
-    margin-top: 20px;
+button:hover {
+    background-color: #2b6cb0;
 }
 
-#patient-list {
+/* Logout Action Button */
+.logout-btn {
+    background-color: #e53e3e;
+    width: auto;
+    padding: 8px 16px;
+}
+
+.logout-btn:hover {
+    background-color: #c53030;
+}
+
+/* System Reset Action Button */
+.reset-btn {
+    background-color: #718096;
+    margin-top: 15px;
+}
+
+.reset-btn:hover {
+    background-color: #4a5568;
+}
+
+/* ===== Patient Cards and Dynamic Lists ===== */ 
+.patient-list {
     list-style-type: none;
     padding: 0;
+}
+
+/* Dynamic patient item display */
+.patient-card {
+    background: #f7fafc;
+    border-left: 4px solid #3182ce;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.patient-card strong {
+    color: #2d3748;
+}
+
+.prescription-form {
+    margin-top: 10px;
+}
+
+/* ===== Status Messages and Helpers ===== */
+.success-msg {
+    color: #2f855a;
+    font-weight: bold;
+}
+
+.error-msg {
+    color: #e53e3e;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 8px 0 0 0;
+}
+
+/* Demo Credentials Box on Login */
+.demo-credentials {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f7fafc;
+    border: 1px dashed #cbd5e0;
+    border-radius: 6px;
+    text-align: left;
+    color: #718096;
+}
+
+.demo-credentials code {
+    background: #edf2f7;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #2d3748;
 }
